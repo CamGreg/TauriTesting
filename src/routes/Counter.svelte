@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { spring } from 'svelte/motion';
+	import Button from '../lib/components/Button.svelte';
+	import 'dseg/css/dseg.css';
 
 	let count = 0;
 
@@ -14,11 +16,11 @@
 </script>
 
 <div class="counter">
-	<button on:click={() => (count -= 1)} aria-label="Decrease the counter by one">
+	<Button on:click={() => (count -= 1)}>
 		<svg aria-hidden="true" viewBox="0 0 1 1">
 			<path d="M0,0.5 L1,0.5" />
 		</svg>
-	</button>
+	</Button>
 
 	<div class="counter-viewport">
 		<div class="counter-digits" style="transform: translate(0, {100 * offset}%)">
@@ -27,11 +29,13 @@
 		</div>
 	</div>
 
-	<button on:click={() => (count += 1)} aria-label="Increase the counter by one">
+	<Button on:click={() => (count += 1)}>
 		<svg aria-hidden="true" viewBox="0 0 1 1">
 			<path d="M0,0.5 L1,0.5 M0.5,0 L0.5,1" />
 		</svg>
-	</button>
+	</Button>
+
+	<p style="font-family:DSEG7-Modern; color:red; font-weight: bold;font-size: 60px;">14.7</p>
 </div>
 
 <style>
@@ -40,22 +44,6 @@
 		border-top: 1px solid rgba(0, 0, 0, 0.1);
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		margin: 1rem 0;
-	}
-
-	.counter button {
-		width: 2em;
-		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 0;
-		background-color: transparent;
-		touch-action: manipulation;
-		font-size: 2rem;
-	}
-
-	.counter button:hover {
-		background-color: var(--color-bg-1);
 	}
 
 	svg {
