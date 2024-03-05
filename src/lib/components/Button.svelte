@@ -21,8 +21,8 @@
 		cursor: pointer;
 		border-radius: 0.6ex;
 		background: linear-gradient(darkgrey, dimgray 70%);
-		height: 4em;
-		width: 11em;
+		height: 4vh;
+		width: 8vh;
 	}
 	button:active {
 		background: darkgrey;

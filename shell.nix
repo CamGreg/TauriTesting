@@ -22,6 +22,7 @@ let
     appimagekit
     nodejs
     nodePackages.pnpm
+    nodePackages.node2nix
     rustc
     cargo
     rustfmt
@@ -37,6 +38,7 @@ pkgs.mkShell {
       export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath libraries}:$LD_LIBRARY_PATH
       export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}:$XDG_DATA_DIRS
 
-      cargo help tauri 2> /dev/null 1> /dev/null || cargo install tauri-cli
+      pnpm install
+      pnpm add -D @tauri-apps/cli
     '';
 }
